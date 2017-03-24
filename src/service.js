@@ -135,10 +135,11 @@
                 callback();
             } else {
                 // Generate link on demand
-                var script = $window.document.createElement('script');
+              var langParam = config.lang ? '&hl='+config.lang : '';
+              var script = $window.document.createElement('script');
                 script.async = true;
                 script.defer = true;
-                script.src = 'https://www.google.com/recaptcha/api.js?onload='+provider.onLoadFunctionName+'&render=explicit';
+                script.src = 'https://www.google.com/recaptcha/api.js?onload='+provider.onLoadFunctionName+'&render=explicit'+langParam;
                 $document.find('body').append(script);
             }
 
